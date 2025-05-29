@@ -1,0 +1,50 @@
+﻿
+insert into OpcionesMenu(Id,Opcion, Descripcion, Seccion) values(28,'REP_UTI_RE', 'Reporte de Utilidad (Resumen)' , 'Reportes')
+
+insert into UsuarioOpcionesMenu(UsuarioId,OpcionId, Crear, Editar, Eliminar, Consultar) 
+values (7,28, 1,1,1,1)
+
+INSERT INTO Columnas(Tabla, Campo, Descripcion, Largo, Formato)
+VALUES('ReporteUtilidad', 'Stock_Actual', 'Stock Actual', 80, 'N3');
+
+INSERT INTO Columnas(Tabla, Campo, Descripcion, Largo, Formato)
+VALUES('ReporteUtilidadResumen', 'Proveedor_Clave', 'Proveedor', 70, NULL);
+
+INSERT INTO Columnas(Tabla, Campo, Descripcion, Largo, Formato)
+VALUES('ReporteUtilidadResumen', 'Proveedor', 'Nombre del Proveedor', 150, NULL);
+
+INSERT INTO Columnas(Tabla, Campo, Descripcion, Largo, Formato)
+VALUES('ReporteUtilidadResumen', 'Articulo', 'Artículo', 60, NULL);
+
+INSERT INTO Columnas(Tabla, Campo, Descripcion, Largo, Formato)
+VALUES('ReporteUtilidadResumen', 'Descripcion', 'Descripción', 200, NULL);
+
+INSERT INTO Columnas(Tabla, Campo, Descripcion, Largo, Formato)
+VALUES('ReporteUtilidadResumen', 'Unidad', 'Unidad', 60, NULL);
+
+INSERT INTO Columnas(Tabla, Campo, Descripcion, Largo, Formato)
+VALUES('ReporteUtilidadResumen', 'Indicador', 'Indicador', 60, NULL);
+
+INSERT INTO Columnas(Tabla, Campo, Descripcion, Largo, Formato)
+VALUES('ReporteUtilidadResumen', 'Diferencia_Dias_Ventas', 'Diferencia Días Ventas', 70, NULL);
+
+INSERT INTO Columnas(Tabla, Campo, Descripcion, Largo, Formato)
+VALUES('ReporteUtilidadResumen', 'Stock_Actual', 'Stock Actual', 80, 'N3');
+
+INSERT INTO Columnas(Tabla, Campo, Descripcion, Largo, Formato)
+VALUES('ReporteUtilidadResumen', 'Total_Vendidos', 'Total Vendidos', 80, 'N3');
+
+INSERT INTO Columnas(Tabla, Campo, Descripcion, Largo, Formato)
+VALUES('ReporteUtilidadResumen', 'Utilidad_Total', 'Utilidad Total', 100, 'c2');
+
+INSERT INTO Columnas(Tabla, Campo, Descripcion, Largo, Formato)
+VALUES('ReporteUtilidadResumen', 'Ultima_Compra_Fecha', 'Última Compra Fecha', 80, 'dd-MM-yyyy');
+
+INSERT INTO Columnas(Tabla, Campo, Descripcion, Largo, Formato)
+VALUES('ReporteUtilidadResumen', 'Ultima_Compra_Cantidad', 'Última Compra Cantidad', 80, 'N3');
+
+INSERT INTO Columnas(Tabla, Campo, Descripcion, Largo, Formato)
+VALUES('ReporteUtilidadResumen', 'Ultima_Venta_Fecha', 'Última Venta Fecha', 80, 'dd-MM-yyyy');
+
+INSERT INTO Columnas(Tabla, Campo, Descripcion, Largo, Formato)
+VALUES('ReporteUtilidadResumen', 'Ultima_Venta_Cantidad', 'Última Venta Cantidad', 80, 'N3');
