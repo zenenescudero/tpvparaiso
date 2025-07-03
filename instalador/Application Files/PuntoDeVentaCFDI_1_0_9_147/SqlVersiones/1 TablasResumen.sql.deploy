@@ -1,0 +1,106 @@
+IF OBJECT_ID('ArticulosFiltro', 'U') IS NOT NULL
+    DROP TABLE ArticulosFiltro;
+GO
+
+CREATE TABLE ArticulosFiltro (
+    ArticuloId BIGINT PRIMARY KEY
+);
+GO
+
+IF OBJECT_ID('ResumenVentas', 'U') IS NOT NULL
+    DROP TABLE ResumenVentas;
+GO
+
+CREATE TABLE ResumenVentas (
+    ArticuloId BIGINT PRIMARY KEY,          -- ID del artículo
+    Total_Vendidos DECIMAL(18, 2) NULL,     -- Total de unidades vendidas
+    Total_Compra DECIMAL(18, 2) NULL,       -- Total de compra
+    Utilidad_Total DECIMAL(18, 2) NULL,     -- Utilidad total
+    Importe_Total DECIMAL(18, 2) NULL,      -- Importe total
+    IEPS_Total DECIMAL(18, 2) NULL,         -- Total de IEPS
+    IVA_Total DECIMAL(18, 2) NULL,          -- Total de IVA
+    Venta_Total DECIMAL(18, 2) NULL         -- Total de la venta
+);
+GO
+
+IF OBJECT_ID('UltimasVentas', 'U') IS NOT NULL
+    DROP TABLE UltimasVentas;
+GO
+
+CREATE TABLE UltimasVentas (
+    ArticuloId BIGINT PRIMARY KEY,
+    Ultima_Venta_Fecha DATETIME NULL,
+    Ultima_Venta_Cantidad DECIMAL(18, 2) NULL,
+    Penultima_Venta_Fecha DATETIME NULL,
+    Penultima_Venta_Cantidad DECIMAL(18, 2) NULL
+);
+GO
+
+IF OBJECT_ID('UltimaCompraArticulo', 'U') IS NOT NULL
+    DROP TABLE UltimaCompraArticulo;
+GO
+
+CREATE TABLE UltimaCompraArticulo (
+    ArticuloId BIGINT NOT NULL PRIMARY KEY,          -- ID del artículo
+    Proveedor_Clave VARCHAR(255) NULL,              -- ID del proveedor
+    Proveedor NVARCHAR(255) NULL,                   -- Nombre del proveedor
+    Ultima_Compra_Cantidad DECIMAL(18, 2) NULL,     -- Cantidad vendida
+    Ultima_Compra_Fecha DATETIME NULL               -- Fecha de la última venta
+);
+GO
+
+IF OBJECT_ID('ResultadosVentas', 'U') IS NOT NULL
+    DROP TABLE ResultadosVentas;
+GO
+
+CREATE TABLE ResultadosVentas (
+    Proveedor_Clave VARCHAR(255) NULL,              -- Clave del proveedor
+    Proveedor VARCHAR(255) NULL,                    -- Nombre del proveedor
+    ARTICULO VARCHAR(255) NOT NULL,                 -- Código del artículo
+    Descripcion VARCHAR(MAX) NULL,                  -- Descripción del artículo
+    Marca VARCHAR(255) NULL,                        -- Marca del artículo
+    Seccion VARCHAR(255) NULL,                      -- Sección del artículo
+    Unidad VARCHAR(50) NULL,                        -- Unidad de medida
+    Margen_Base DECIMAL(18, 2) NULL,                -- Margen de utilidad.
+    Stock_Actual DECIMAL(18, 2) NULL,               -- Stock actual
+    Total_Vendidos DECIMAL(18, 2) NULL,             -- Total de unidades vendidas
+    Total_Compra DECIMAL(18, 2) NULL,               -- Total de compra
+    Utilidad_Total DECIMAL(18, 2) NULL,             -- Utilidad total
+    Utilidad_Total_Margen DECIMAL(18, 2) NULL,             -- Utilidad total Marge
+    Importe_Total DECIMAL(18, 2) NULL,              -- Importe total
+    IEPS_Total DECIMAL(18, 2) NULL,                 -- Total de IEPS
+    IVA_Total DECIMAL(18, 2) NULL,                  -- Total de IVA
+    Venta_Total DECIMAL(18, 2) NULL,                -- Total de la venta
+    Ultima_Compra_Fecha DATETIME NULL,              -- Fecha de la última compra
+    Ultima_Compra_Cantidad DECIMAL(18, 2) NULL,     -- Cantidad de la última compra
+    Ultima_Venta_Fecha DATETIME NULL,               -- Fecha de la última venta
+    Penultima_Venta_Fecha DATETIME NULL,            -- Fecha de la penúltima venta
+    Ultima_Venta_Cantidad DECIMAL(18, 2) NULL,      -- Cantidad de la última venta
+    Diferencia_Dias_Ventas INT NULL,                -- Diferencia en días entre la última y penúltima venta
+    SalidasPeriodo DECIMAL(18, 2) NULL,
+    SugerenciaCompra DECIMAL(18, 2) NULL
+);
+GO
+
+IF OBJECT_ID('UltimasVentasCatalogo', 'U') IS NOT NULL
+    DROP TABLE UltimasVentasCatalogo;
+GO
+
+CREATE TABLE UltimasVentasCatalogo (
+    ArticuloId BIGINT PRIMARY KEY,
+    Ultima_Venta_Fecha DATETIME NULL,
+    Ultima_Venta_Cantidad DECIMAL(18, 2) NULL,
+    Penultima_Venta_Fecha DATETIME NULL,
+    Penultima_Venta_Cantidad DECIMAL(18, 2) NULL
+);
+GO
+IF OBJECT_ID('UltimasVentasPeriodo', 'U') IS NOT NULL
+    DROP TABLE UltimasVentasPeriodo;
+GO
+
+CREATE TABLE UltimasVentasPeriodo (
+    ArticuloId BIGINT PRIMARY KEY,
+    SalidasPeriodo DECIMAL(18, 2) NULL,
+    SugerenciaCompra DECIMAL(18, 2) NULL
+);
+GO

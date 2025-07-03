@@ -1,8 +1,0 @@
-
-CREATE NONCLUSTERED INDEX IX_Tickets_Cancelado_Cuando_SucursalId
-ON Tickets (Cancelado, CUANDO, SucursalId)
-INCLUDE (Id);
-
-CREATE NONCLUSTERED INDEX IX_TicketsDetalle_IdTicket_ArticuloId
-ON TicketsDetalle (IdTicket, ArticuloId)
-INCLUDE (Cantidad);
